@@ -4,9 +4,13 @@
 Tools used in the project:
 
   Java 1.8
+  
   Springboot 2.7.3
+  
   MySQL-Workbench 8.0 
+  
   Thymeleaf
+  
   Bootstrap 4
 
 
