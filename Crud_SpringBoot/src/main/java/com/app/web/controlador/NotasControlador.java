@@ -32,7 +32,7 @@ public class NotasControlador {
     }
 
     @PostMapping("/notas")
-    public String guardarNotas(Nota notas) {
+    public String guardarNotas(@ModelAttribute("notas") Nota notas) {
         servicio.guardarNotas(notas);
         return "redirect:/notas";
     }

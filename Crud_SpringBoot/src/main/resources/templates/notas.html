@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Listado Notas</title>
+        <title>Web Notes</title>
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
         <meta charset="UTF-8">
@@ -10,25 +10,35 @@
     <body>
         <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">NOTES</a>
+          <a class="navbar-brand" href="/">NOTES</a>
         </nav>
         </div>
         <div class="container">
             <div class="row">
                 <h1>My notes</h1>
             </div>
-            <table class="table">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <a th:href="@{/notas/nuevo}" class="btn btn-primary btn-sm mb3">Add Note</a>
+                    </div>
+                </div>
+                <br>
+            <table class="table table-striped table-bordered">
                 <thead class="table-dark">
                     <tr>
                         <th scope="col">Title</th>
                         <th scope="col">Content</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each = "nota : ${notas}">
                          <td th:text="${nota.titulo}">Title</td>
                          <td th:text="${nota.contenido}">Content</td>
-                       
+                        <td>
+                            <a th:href="@{/notas/editar/{id}(id=${nota.id})}" class="btn btn-info">Edit</a>
+                            <a th:href="@{/notas/{id}(id=${nota.id})}" class="btn btn-danger">Delete</a>
+                        </td>
                     </tr>
                  
                 </tbody>
